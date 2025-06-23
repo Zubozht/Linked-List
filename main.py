@@ -1,6 +1,6 @@
 class Node:
     def __init__(self, data):
-        self.data = data,
+        self.data = data
         self.next = None
 
 class LinkedList:
@@ -11,10 +11,10 @@ class LinkedList:
             if self.head is None:
                 print('The linked list is empty')
             else:
-                ll_output = ()
+                ll_output = ''
                 current_node = self.head
                 while current_node:
-                    ll_output += current_node.data
+                    ll_output += current_node.data + ' --> '
                     current_node = current_node.next
                 print(ll_output)
 
