@@ -158,21 +158,3 @@ class LinkedList:
                     prev = current
                     current = next
                     next = next.next
-
-
-
-if __name__ == '__main__':
-    myll = LinkedList()
-    #print(myll.printlist())
-    myll.listappend('apple')
-    myll.listappend('pineapple')
-    myll.listappend('orange')
-    myll.listprepend('dragonfruit')
-    myll.listdelete('apple')
-    myll.listinsertarr(['1','2','3','4','5','6'])
-    myll.listindexremove(0)
-    myll.listindexinsert('new fruit', 0)
-    print(myll.listlen())
-    print(myll.printlist())
-    print('reversed: ', myll.listreverse())
-    print(myll.listasiter())
