@@ -8,7 +8,7 @@ class LinkedList:
             self.head = None
 
         def __str__(self):
-            return self.printlist()
+            return str(self.printlist())
 
         def __iter__(self):
             for i in self.listasiter():
@@ -16,7 +16,7 @@ class LinkedList:
 
         def printlist(self):
             if self.head is None:
-                return 'The linked list is empty.'
+                return None
             ll_output = ''
             current_node = self.head
             while current_node:
@@ -36,9 +36,9 @@ class LinkedList:
 
         def listgetelement(self, index):
             if self.head is None:
-                return 'The linked list is empty.'
+                raise Exception("The linked list is empty")
             if index < 0 or index >= self.listlen():
-                return 'Index out of range.'
+                raise Exception("Index out of range.")
             lcount = 0
             current_node = self.head
             while lcount != index:
@@ -72,7 +72,7 @@ class LinkedList:
         def listindexinsert(self, data, index):
             listlen = self.listlen()
             if index < 0 or index > listlen:
-                print('Index out of range.')
+                raise Exception("Index out of range.")
             else:
                 new_node = Node(data)
                 if index == 0:
@@ -102,7 +102,7 @@ class LinkedList:
 
         def listdelete(self, data):
             if self.head is None:
-                print('The linked list is empty.')
+                raise Exception("The linked list is empty.")
             else:
                 current_node = self.head
                 if current_node.data == data:
@@ -113,22 +113,20 @@ class LinkedList:
                     if current_node.next and current_node.next.data == data:
                         current_node.next = current_node.next.next
                     else:
-                        print('Given element not found in the linked list.')
+                        raise Exception("Given element not found in the linked list.")
 
         def listremovefirst(self):
             if self.head is None:
-                print('The linked list is empty.')
+                raise Exception("The linked list is empty.")
             else:
                 self.head = self.head.next
 
         def listindexremove(self, index):
             listlen = self.listlen()
             if self.head is None:
-                print('The linked list is empty.')
-                return
+                raise Exception("The linked list is empty.")
             if index < 0 or index >= listlen:
-                print('No element found at the given index.')
-                return
+                raise Exception("No element found at the given index.")
             if index == 0:
                 self.listremovefirst()
                 return
@@ -142,7 +140,7 @@ class LinkedList:
 
         def listreverse(self):
             if self.head is None:
-                print('The linked list is empty.')
+                return self.printlist()
             if self.head.next is None:
                 return self.printlist()
             else:
