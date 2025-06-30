@@ -88,6 +88,17 @@ class LinkedList:
                     new_node.next = current_node.next
                     current_node.next = new_node
 
+        def listindexset(self, data, index):
+            listlen = self.listlen()
+            if index < 0 or index >= listlen:
+                raise Exception("Index out of range.")
+            else:
+                lcount = 0
+                current_node = self.head
+                while lcount != index:
+                    lcount += 1
+                    current_node = current_node.next
+                current_node.data = data
 
         def listlen(self):
             if self.head is None:
